@@ -83,3 +83,10 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Load the syntax highlighting as the last thing as
+# indicated in the plugin page
+
+source /home/pablogsal/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+screenfetch
