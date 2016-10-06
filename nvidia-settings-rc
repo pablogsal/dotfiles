@@ -2,7 +2,7 @@
 # /home/pablogsal/.nvidia-settings-rc
 #
 # Configuration file for nvidia-settings - the NVIDIA X Server Settings utility
-# Generated on Fri Apr 22 04:36:00 2016
+# Generated on Thu Sep 22 13:55:37 2016
 #
 
 # ConfigProperties:
@@ -14,19 +14,18 @@ SliderTextEntries = Yes
 IncludeDisplayNameInConfigFile = No
 ShowQuitDialog = Yes
 UpdateRulesOnProfileNameChange = Yes
-Timer = PowerMizer_Monitor_(GPU_1),Yes,1000
-Timer = Thermal_Monitor_(GPU_1),Yes,1000
-Timer = Memory_Used_(GPU_1),Yes,3000
-Timer = PowerMizer_Monitor_(GPU_0),Yes,1000
-Timer = Thermal_Monitor_(GPU_0),Yes,1000
 Timer = Memory_Used_(GPU_0),Yes,3000
+Timer = Thermal_Monitor_(GPU_0),Yes,1000
+Timer = PowerMizer_Monitor_(GPU_0),Yes,1000
+Timer = Memory_Used_(GPU_1),Yes,3000
+Timer = Thermal_Monitor_(GPU_1),Yes,1000
+Timer = PowerMizer_Monitor_(GPU_1),Yes,1000
 
 # Attributes:
 
 0/SyncToVBlank=1
 0/LogAniso=0
 0/FSAA=0
-0/TextureSharpen=0
 0/TextureClamping=1
 0/FXAA=0
 0/AllowFlipping=1

@@ -27,7 +27,6 @@ let g:syntastic_check_on_wq = 0
 :let g:jedi#popup_on_dot = 0
 :let g:jedi#auto_close_doc = 1
 
-
 "Change vim-move lead key
 :let g:move_key_modifier = 'C'
 
@@ -40,5 +39,3 @@ let g:syntastic_check_on_wq = 0
 "====[ Make the 81st column stand out ]====================
 highlight ColorColumn ctermbg=yellow
 call matchadd('ColorColumn', '\%81v', 100)
-
-
