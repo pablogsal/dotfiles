@@ -1,4 +1,4 @@
-
+"Deactivate syntastic on wq
 let g:syntastic_check_on_wq = 0
 
 " Remove anoying indentation reset when typing #
@@ -12,6 +12,8 @@ let g:syntastic_check_on_wq = 0
 :set list listchars=tab:❘-,trail:·,extends:»,precedes:«,nbsp:×
 :set showbreak=↪\ 
 
+"Eliminate delay to normal mode
+set timeoutlen=1000 ttimeoutlen=0
 
 " Remap leader key
 :let mapleader = "\\"
@@ -24,9 +26,22 @@ let g:syntastic_check_on_wq = 0
 
 
 "Set omnicomplete using the jedy plugin
-:let g:jedi#popup_on_dot = 0
+:let g:jedi#popup_on_dot = 1
 :let g:jedi#auto_close_doc = 1
 
+"Remap CtrlP to <Ctrl-p> and delete the <Ctrl-b> map
+let g:ctrlp_map = '<c-p>'
+:nunmap <C-B>
+
+"VIM HARD MODE
+noremap <Up> <nop>
+noremap <Down> <nop>
+noremap <Left> <nop>
+noremap <Right> <nop>
+inoremap <Up> <nop>
+inoremap <Down> <nop>
+inoremap <Left> <nop>
+inoremap <Right> <nop>
 
 "Change vim-move lead key
 :let g:move_key_modifier = 'C'
@@ -38,8 +53,27 @@ let g:syntastic_check_on_wq = 0
 :hi SearchCurrent ctermbg=lightgreen ctermfg=black 
 :hi Pmenu ctermbg=lightblue ctermfg=black
 :hi PmenuSel ctermbg=lightgreen ctermfg=black
+
 "====[ Make the 81st column stand out ]====================
 highlight ColorColumn ctermbg=yellow
 call matchadd('ColorColumn', '\%81v', 100)
 
+"Start NERDTree
+let g:NERDTreeWinPos = "left"
+autocmd vimenter * NERDTree
+"Go to prevuous accessed window
+autocmd VimEnter * wincmd p
+        "Close NERDTree if its the last thing of vim
+        autocmd WinEnter * call s:CloseIfOnlyNerdTreeLeft()
 
+            " Close all open buffers on entering a window if the only
+            " buffer that's left is the NERDTree buffer
+            function! s:CloseIfOnlyNerdTreeLeft()
+              if exists("t:NERDTreeBufName")
+                if bufwinnr(t:NERDTreeBufName) != -1
+                  if winnr("$") == 1
+                    q
+                  endif
+                endif
+              endif
+            endfunction
