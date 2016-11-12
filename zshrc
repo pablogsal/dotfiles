@@ -2,8 +2,8 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/pablogsal/.oh-my-zsh
-
+export ZSH=$HOME/.oh-my-zsh
+export ZSH_CUSTOM=$HOME/.dotfiles/oh-my-zsh_custom/
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -87,6 +87,6 @@ source $ZSH/oh-my-zsh.sh
 # Load the syntax highlighting as the last thing as
 # indicated in the plugin page
 
-source /home/pablogsal/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $ZSH_CUSTOM/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 #screenfetch
