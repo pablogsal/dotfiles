@@ -1,7 +1,3 @@
-"Include stuff on custom directory
-:call pathogen#infect('~/.dotfiles/vim_runtime_custom/{}')
-
-
 "Deactivate syntastic on wq
 let g:syntastic_check_on_wq = 0
 
@@ -89,3 +85,5 @@ call matchadd('ColorColumn', '\%81v', 100)
 "                 endif
 "               endif
 "             endfunction
+"
+"

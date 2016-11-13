@@ -9,3 +9,5 @@ try
 source ~/.dotfiles/vim_my_configs.vim
 catch
 endtry
+
+:call pathogen#infect('~/.dotfiles/vim_runtime_custom/{}')
