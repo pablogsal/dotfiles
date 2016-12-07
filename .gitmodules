@@ -1,0 +1,15 @@
+[submodule "vim_runtime_custom/jedi-vim"]
+	path = vim_runtime_custom/jedi-vim
+	url = https://github.com/davidhalter/jedi-vim.git
+[submodule "vim_runtime_custom/vim-autoformat"]
+	path = vim_runtime_custom/vim-autoformat
+	url = https://github.com/Chiel92/vim-autoformat.git
+[submodule "vim_runtime_custom/vim-move"]
+	path = vim_runtime_custom/vim-move
+	url = https://github.com/matze/vim-move.git
+[submodule "vim_runtime_custom/vim-searchant"]
+	path = vim_runtime_custom/vim-searchant
+	url = https://github.com/timakro/vim-searchant.git
+[submodule "vim_runtime_custom/vim-autotag"]
+	path = vim_runtime_custom/vim-autotag
+	url = https://github.com/craigemery/vim-autotag.git
