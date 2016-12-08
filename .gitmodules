@@ -13,3 +13,9 @@
 [submodule "vim_runtime_custom/vim-autotag"]
 	path = vim_runtime_custom/vim-autotag
 	url = https://github.com/craigemery/vim-autotag.git
+[submodule "oh-my-zsh_custom/zsh-syntax-highlighting"]
+	path = oh-my-zsh_custom/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+[submodule "oh-my-zsh_custom/plugins/zsh-autosuggestions"]
+	path = oh-my-zsh_custom/plugins/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions.git
