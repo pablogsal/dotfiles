@@ -10,9 +10,6 @@
 [submodule "vim_runtime_custom/vim-searchant"]
 	path = vim_runtime_custom/vim-searchant
 	url = https://github.com/timakro/vim-searchant.git
-[submodule "vim_runtime_custom/vim-autotag"]
-	path = vim_runtime_custom/vim-autotag
-	url = https://github.com/craigemery/vim-autotag.git
 [submodule "oh-my-zsh_custom/zsh-syntax-highlighting"]
 	path = oh-my-zsh_custom/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
