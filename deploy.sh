@@ -1,3 +1,4 @@
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+	    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-git clone git://github.com/amix/vimrc.git ~/.vim_runtime
 git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
