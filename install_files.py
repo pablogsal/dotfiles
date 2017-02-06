@@ -52,3 +52,36 @@ for rcfile in glob.iglob('*rc'):
 
     os.symlink(source, link_name)
     print("`%s' -> `%s'" % (link_name, source))
+
+for rcfile in glob.iglob('*.symlink'):
+    source = os.path.relpath(rcfile, home_dir)
+    link_name = os.path.expanduser('~/.%s' % rcfile)
+    link_name = link_name[:-len(".symlink")]
+
+    if os.path.exists(link_name):
+
+        if overwrite_all:
+            os.unlink(link_name)
+
+        else:
+            msg = "File already exists: %s" % os.path.basename(link_name)
+            print(msg, end = ' ')
+
+            if skip_all:
+                print('[Skip]')
+                continue
+
+            options = "\n[s]kip, [S]kip all, [o]verwite, [O]verwite all ? "
+            response = input(options).strip()
+
+            if response.lower() == 'o':
+                os.unlink(link_name)
+                if response == 'O':
+                    overwrite_all = True
+            else:
+                if response == 'S':
+                    skip_all = True
+                continue
+
+    os.symlink(source, link_name)
+
