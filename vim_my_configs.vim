@@ -34,8 +34,8 @@ set timeoutlen=1000 ttimeoutlen=0
 
 
 "Remap CtrlP to <Ctrl-p> and delete the <Ctrl-b> map
-let g:ctrlp_map = '<c-p>'
-:nunmap <C-B>
+" let g:ctrlp_map = '<c-p>'
+" :nunmap <C-B>
 
 "VIM HARD MODE
 noremap <Up> <nop>
@@ -60,6 +60,9 @@ inoremap <Right> <nop>
 
 "Run yapf (autoformat) on exit.
 :let g:formatters_python = ['yapf']
+:let g:formatter_yapf_style = 'pep8'
+:let g:autoformat_verbosemode=1
+:let g:formatdef_yapf =  "'yapf --style=\"{based_on_style:'.g:formatter_yapf_style.'}\" -l '.a:firstline.'-'.a:lastline"
 :autocmd BufWritePre *.py :Autoformat
 
 "====[ Make the 81st column stand out ]====================
