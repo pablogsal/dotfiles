@@ -14,7 +14,7 @@ import glob
 import os
 import os.path
 
-dotfiles_dir = os.path.abspath(os.path.dirname(__file__))
+dotfiles_dir = os.path.abspath(os.path.join(os.path.dirname(__file__),"rcfiles"))
 home_dir = os.path.expanduser('~')
 
 skip_all = False

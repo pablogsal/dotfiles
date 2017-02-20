@@ -4,5 +4,5 @@ source ~/.vim_config_rc/vimrcs/basic.vim
 source ~/.vim_config_rc/vimrcs/filetypes.vim
 source ~/.vim_config_rc/vimrcs/extended.vim
 
-source ~/.dotfiles/vim_my_configs.vim
+source ~/.dotfiles/vim/vim_my_configs.vim
 
