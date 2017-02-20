@@ -248,7 +248,13 @@ prompt_pure_async_git_dirty() {
 		test -z "$(command git status --porcelain --ignore-submodules -unormal)"
 	fi
 
-	(( $? )) && echo "*"
+	if [[ $? -eq 0 ]]
+	then
+		echo " %F{green}✔%f"
+	else
+		echo " %F{red}✗%f"
+	fi
+	# (( $? )) && echo "*"
 }
 
 prompt_pure_async_git_fetch() {

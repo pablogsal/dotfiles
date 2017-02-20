@@ -34,7 +34,6 @@ Plug 'tpope/vim-surround' " mappings to easily delete, change and add such surro
 Plug 'benmills/vimux' " tmux integration for vim
 Plug 'vim-airline/vim-airline' " fancy statusline
 Plug 'vim-airline/vim-airline-themes' " themes for vim-airline
-Plug 'neomake/neomake' " neovim replacement for syntastic using neovim's job control functonality
 Plug 'tpope/vim-fugitive' " amazing git wrapper for vim
 Plug 'tpope/vim-repeat' " enables repeating other supported plugins with the . command
 Plug 'garbas/vim-snipmate' " snippet manager
@@ -52,6 +51,7 @@ Plug 'sickill/vim-pasta' " context-aware pasting
 Plug 'timakro/vim-searchant' "Easy search highlight
 Plug 'Chiel92/vim-autoformat' "Autoformat syntax
 Plug 'matze/vim-move' "Easy navigation for moving lines up and down
+Plug 'vim-syntastic/syntastic' "Syntax highlighting
 
 "Python
 

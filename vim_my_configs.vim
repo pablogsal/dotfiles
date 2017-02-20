@@ -60,10 +60,11 @@ inoremap <Right> <nop>
 
 "Run yapf (autoformat) on exit.
 :let g:formatters_python = ['yapf']
-:let g:formatter_yapf_style = 'pep8'
 :let g:autoformat_verbosemode=1
-:let g:formatdef_yapf =  "'yapf --style=\"{based_on_style:'.g:formatter_yapf_style.'}\" -l '.a:firstline.'-'.a:lastline"
-:autocmd BufWritePre *.py :Autoformat
+:let g:formatter_yapf_style = 'pep8'
+" :let g:formatdef_yapf =  "'yapf --style=\"{based_on_style:'.g:formatter_yapf_style.'}\" -l '.a:firstline.'-'.a:lastline"
+:let g:formatdef_yapf =  "'yapf --style=\"$HOME/.dotfiles/vim_config_rc/auxiliar_config/yapf/style\" -l '.a:firstline.'-'.a:lastline"
+" :autocmd BufWritePre *.py :Autoformat
 
 "====[ Make the 81st column stand out ]====================
 highlight ColorColumn ctermbg=yellow
@@ -85,25 +86,36 @@ call matchadd('ColorColumn', '\%81v', 100)
  let g:tsuquyomi_completion_detail = 1
  autocmd FileType typescript nmap <buffer> <leader>h : <C-u>echo tsuquyomi#hint()<cr>
 
+ "syntastic options
+ set statusline+=%#warningmsg#
+ set statusline+=%{SyntasticStatuslineFlag()}
+ set statusline+=%*
 
-" "Start NERDTree
-" let g:NERDTreeWinPos = "left"
-" autocmd vimenter * NERDTree
-" "Go to prevuous accessed window
-" autocmd VimEnter * wincmd p
-"         "Close NERDTree if its the last thing of vim
-"         autocmd WinEnter * call s:CloseIfOnlyNerdTreeLeft()
+ let g:syntastic_python_checkers = ["pylint"]
+ let g:syntastic_always_populate_loc_list = 1
+ let g:syntastic_auto_loc_list = 1
+ let g:syntastic_check_on_open = 1
+ let g:syntastic_check_on_wq = 0
 
-"             " Close all open buffers on entering a window if the only
-"             " buffer that's left is the NERDTree buffer
-"             function! s:CloseIfOnlyNerdTreeLeft()
-"               if exists("t:NERDTreeBufName")
-"                 if bufwinnr(t:NERDTreeBufName) != -1
-"                   if winnr("$") == 1
-"                     q
-"                   endif
-"                 endif
-"               endif
-"             endfunction
-"
-"
+ "Start NERDTree
+ 
+ let g:NERDTreeWinPos = "left"
+ autocmd vimenter * NERDTreeFind
+ "Go to prevuous accessed window
+ autocmd VimEnter * wincmd p
+         "Close NERDTree if its the last thing of vim
+         autocmd WinEnter * call s:CloseIfOnlyNerdTreeLeft()
+
+             " Close all open buffers on entering a window if the only
+             " buffer that's left is the NERDTree buffer
+             function! s:CloseIfOnlyNerdTreeLeft()
+               if exists("t:NERDTreeBufName")
+                 if bufwinnr(t:NERDTreeBufName) != -1
+                   if winnr("$") == 1
+                     q
+                   endif
+                 endif
+               endif
+             endfunction
+
+

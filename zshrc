@@ -8,6 +8,9 @@ export ZSH_CUSTOM=$HOME/.dotfiles/oh-my-zsh_custom/
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="pure"
+PURE_GIT_DOWN_ARROW="%F{011}⇣%f"
+PURE_GIT_UP_ARROW="%F{012}⇡%f"
+
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -88,5 +91,6 @@ source $ZSH/oh-my-zsh.sh
 # indicated in the plugin page
 
 source $ZSH_CUSTOM/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $ZSH_CUSTOM/themes/pure_adidional.zsh-theme
 
 #screenfetch
