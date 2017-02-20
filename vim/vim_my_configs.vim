@@ -97,25 +97,98 @@ call matchadd('ColorColumn', '\%81v', 100)
  let g:syntastic_check_on_open = 1
  let g:syntastic_check_on_wq = 0
 
- "Start NERDTree
- 
- let g:NERDTreeWinPos = "left"
- autocmd vimenter * NERDTreeFind
- "Go to prevuous accessed window
- autocmd VimEnter * wincmd p
-         "Close NERDTree if its the last thing of vim
-         autocmd WinEnter * call s:CloseIfOnlyNerdTreeLeft()
+" Fugitive Shortcuts
+"""""""""""""""""""""""""""""""""""""
+nmap <silent> <leader>gs :Gstatus<cr>
+nmap <leader>ge :Gedit<cr>
+nmap <silent><leader>gr :Gread<cr>
+nmap <silent><leader>gb :Gblame<cr>
 
-             " Close all open buffers on entering a window if the only
-             " buffer that's left is the NERDTree buffer
-             function! s:CloseIfOnlyNerdTreeLeft()
-               if exists("t:NERDTreeBufName")
-                 if bufwinnr(t:NERDTreeBufName) != -1
-                   if winnr("$") == 1
-                     q
-                   endif
-                 endif
-               endif
-             endfunction
+nmap <leader>m :MarkedOpen!<cr>
+nmap <leader>mq :MarkedQuit<cr>
+nmap <leader>* *<c-o>:%s///gn<cr>
+
+
+" Insert mode completion
+imap <c-x><c-k> <plug>(fzf-complete-word)
+imap <c-x><c-f> <plug>(fzf-complete-path)
+imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+imap <c-x><c-l> <plug>(fzf-complete-line)
+
+ " FZF
+"""""""""""""""""""""""""""""""""""""
+
+" Toggle NERDTree
+nmap <silent> <leader>k :NERDTreeToggle<cr>
+" expand to the path of the file in the current buffer
+nmap <silent> <leader>y :NERDTreeFind<cr>
+
+let NERDTreeShowHidden=1
+let NERDTreeDirArrowExpandable = '▷'
+let NERDTreeDirArrowCollapsible = '▼'
+
+let g:fzf_layout = { 'down': '~25%' }
+
+if isdirectory(".git")
+    " if in a git project, use :GFiles
+    nmap <silent> <leader>t :GFiles<cr>
+else
+    " otherwise, use :FZF
+    nmap <silent> <leader>t :FZF<cr>
+endif
+
+nmap <silent> <leader>b :Buffers<cr>
+nmap <silent> <leader>e :FZF<cr>
+nmap <leader><tab> <plug>(fzf-maps-n)
+xmap <leader><tab> <plug>(fzf-maps-x)
+omap <leader><tab> <plug>(fzf-maps-o)
+
+" Insert mode completion
+imap <c-x><c-k> <plug>(fzf-complete-word)
+imap <c-x><c-f> <plug>(fzf-complete-path)
+imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+imap <c-x><c-l> <plug>(fzf-complete-line)
+
+nnoremap <silent> <Leader>C :call fzf#run({
+\   'source':
+\     map(split(globpath(&rtp, "colors/*.vim"), "\n"),
+\         "substitute(fnamemodify(v:val, ':t'), '\\..\\{-}$', '', '')"),
+\   'sink':    'colo',
+\   'options': '+m',
+\   'left':    30
+\ })<CR>
+
+command! FZFMru call fzf#run({
+\  'source':  v:oldfiles,
+\  'sink':    'e',
+\  'options': '-m -x +s',
+\  'down':    '40%'})
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+
+
+
+"  "Start NERDTree
+ 
+"  let g:NERDTreeWinPos = "left"
+"  autocmd vimenter * NERDTreeFind
+"  "Go to prevuous accessed window
+"  autocmd VimEnter * wincmd p
+"          "Close NERDTree if its the last thing of vim
+"          autocmd WinEnter * call s:CloseIfOnlyNerdTreeLeft()
+
+"              " Close all open buffers on entering a window if the only
+"              " buffer that's left is the NERDTree buffer
+"              function! s:CloseIfOnlyNerdTreeLeft()
+"                if exists("t:NERDTreeBufName")
+"                  if bufwinnr(t:NERDTreeBufName) != -1
+"                    if winnr("$") == 1
+"                      q
+"                    endif
+"                  endif
+"                endif
+"              endfunction
 
 
