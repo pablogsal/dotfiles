@@ -18,7 +18,7 @@ call plug#begin('~/.vim_config_rc/plugged')
 
 " colorschemes
 " Plug 'dracula/vim'
-Plug 'joshdick/onedark.vim'
+" Plug 'joshdick/onedark.vim' "Problems with statusline (Deactivated)
 
 " utilities
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] } | Plug 'Xuyuanp/nerdtree-git-plugin' | Plug 'ryanoasis/vim-devicons' " file drawer
