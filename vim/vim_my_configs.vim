@@ -1,4 +1,4 @@
-" Remove anoying indentation reset when typing #
+"Cos-i) Remove anoying indentation reset when typing #
 " Notice that this simbol (  ) is typed using Ctrl+V Ctrl+H
 :inoremap # X#
 
@@ -27,7 +27,8 @@ set timeoutlen=1000 ttimeoutlen=0
 "Set omnicomplete using the jedy plugin
 :let g:jedi#popup_on_dot = 1
 :let g:jedi#auto_close_doc = 1
-:let g:jedi#use_tabs_not_buffers = 1
+" :let g:jedi#use_tabs_not_buffers = 0
+
 
 
 "Remap CtrlP to <Ctrl-p> and delete the <Ctrl-b> map
@@ -182,10 +183,9 @@ command! FZFMru call fzf#run({
 \  'down':    '40%'})
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
-
-
+" FIXES
+"
+set clipboard=unnamed
 
 "  "Start NERDTree
  

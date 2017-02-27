@@ -96,5 +96,3 @@ source $ZSH_CUSTOM/themes/pure_adidional.zsh-theme
 #screenfetch
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_COMMAND='ag -g ""'
-
