@@ -1,7 +1,4 @@
-"Deactivate syntastic on wq
-let g:syntastic_check_on_wq = 0
-
-" Remove anoying indentation reset when typing #
+"Cos-i) Remove anoying indentation reset when typing #
 " Notice that this simbol (  ) is typed using Ctrl+V Ctrl+H
 :inoremap # X#
 
@@ -30,7 +27,8 @@ set timeoutlen=1000 ttimeoutlen=0
 "Set omnicomplete using the jedy plugin
 :let g:jedi#popup_on_dot = 1
 :let g:jedi#auto_close_doc = 1
-:let g:jedi#use_tabs_not_buffers = 1
+" :let g:jedi#use_tabs_not_buffers = 0
+
 
 
 "Remap CtrlP to <Ctrl-p> and delete the <Ctrl-b> map
@@ -63,7 +61,7 @@ inoremap <Right> <nop>
 :let g:autoformat_verbosemode=1
 :let g:formatter_yapf_style = 'pep8'
 " :let g:formatdef_yapf =  "'yapf --style=\"{based_on_style:'.g:formatter_yapf_style.'}\" -l '.a:firstline.'-'.a:lastline"
-:let g:formatdef_yapf =  "'yapf --style=\"$HOME/.dotfiles/vim_config_rc/auxiliar_config/yapf/style\" -l '.a:firstline.'-'.a:lastline"
+:let g:formatdef_yapf =  "'yapf --style=\"$HOME/.dotfiles/vim/vim_config_rc/auxiliar_config/yapf/style\" -l '.a:firstline.'-'.a:lastline"
 " :autocmd BufWritePre *.py :Autoformat
 
 "====[ Make the 81st column stand out ]====================
@@ -94,7 +92,7 @@ call matchadd('ColorColumn', '\%81v', 100)
  let g:syntastic_python_checkers = ["pylint"]
  let g:syntastic_always_populate_loc_list = 1
  let g:syntastic_auto_loc_list = 1
- let g:syntastic_check_on_open = 1
+ " let g:syntastic_check_on_open = 1
  let g:syntastic_check_on_wq = 0
 
 " Fugitive Shortcuts
@@ -117,6 +115,26 @@ imap <c-x><c-l> <plug>(fzf-complete-line)
 
  " FZF
 """""""""""""""""""""""""""""""""""""
+" Customize fzf colors to match your color scheme
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+
+" This is the default extra key bindings
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
 
 " Toggle NERDTree
 nmap <silent> <leader>k :NERDTreeToggle<cr>
@@ -165,10 +183,9 @@ command! FZFMru call fzf#run({
 \  'down':    '40%'})
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
-
-
+" FIXES
+"
+set clipboard=unnamed
 
 "  "Start NERDTree
  

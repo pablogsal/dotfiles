@@ -58,6 +58,7 @@ Plug 'vim-syntastic/syntastic' "Syntax highlighting
 "Python
 
 Plug 'davidhalter/jedi-vim' " Autocompletion and introspection
+Plug 'michaeljsmith/vim-indent-object' "Indent level text object
 
 " html / templates
 Plug 'mattn/emmet-vim', { 'for': 'html' } " emmet support for vim - easily create markdup wth CSS-like syntax
