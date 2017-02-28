@@ -1,16 +1,17 @@
 # Set anaconda installation
 
-export PATH=$PATH:/home/pgalindo3/anaconda3/bin
-alias python3=/home/pgalindo3/anaconda3/bin/python
+export PATH=$PATH:$HOME/anaconda3/bin
+export LD_LIBRARY_PATH=$HOME/anaconda3/lib
+alias python3=$HOME/anaconda3/bin/python
 
 # Set virtualenvwrapper
-export VIRTUALENVWRAPPER_PYTHON=/home/pgalindo3/anaconda3/bin/python
-source /home/pgalindo3/anaconda3/bin/virtualenvwrapper.sh
+export VIRTUALENVWRAPPER_PYTHON=$HOME/anaconda3/bin/python
+source $HOME/anaconda3/bin/virtualenvwrapper.sh
 
 # Set pythonrc configuration file
 
-export PYTHONSTARTUP=/home/pgalindo3/.pythonrc
+export PYTHONSTARTUP=$HOME/.pythonrc
 
 # Add python custom path
 
-export PYTHONPATH="$PYTHONPATH:/home/pgalindo3/anaconda3/lib/python3.5/site-packages:/home/pgalindo3/.custom_python"
+export PYTHONPATH="$PYTHONPATH:$HOME/anaconda3/lib/python3.5/site-packages:$HOME/.custom_python"
