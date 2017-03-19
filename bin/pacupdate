@@ -1,0 +1,45 @@
+#!/bin/bash
+# does an update
+echo -e "\e[32m:: updating system...\e[39m"
+echo -e "\e[34m:: updating pacman...\e[39m"
+sudo pacman -Syu
+echo -e "\e[34m:: updating yaourt...\e[39m"
+yaourt -Syua
+echo " "
+echo -e "\e[32m:: update complete...\e[39m"
+echo " "
+sleep 1s
+# function to check for and remove orphan packages
+# this function looped by the while loop later
+function orphanage {
+echo -e "\e[32m:: checking if orphan packages exist on the system...\e[39m"
+ORPHANS=`pacman -Qqdt`
+if [ -z "$ORPHANS" ]
+then
+    echo -e "\e[34m:: system is clean, will optimize database...\e[39m"
+    sudo pacman-optimize && sync
+    echo -e "\e[32m:: Everything is OK, will exit...\e[39m"
+    sleep 1s
+    exit
+else
+    echo -e "\e[31m:: orphans found on the system.\n$ORPHANS\n\n:: Removing...\e[39m"
+    sudo pacman -R --nosave $ORPHANS
+fi
+}
+# end of orphan function
+#
+#
+# infinite loop to find and remove orphan packages
+# script exits when none found
+while [ 1 ]
+do
+orphanage
+done
+# end of loop
+#
+#
+# choose echo error message or zenity error message
+echo -e "\e[31m:: ** update script did not exit normally!\e[39m"
+#zenity --warning --text="Update script did not exit normally"
+sleep 8s
+exit

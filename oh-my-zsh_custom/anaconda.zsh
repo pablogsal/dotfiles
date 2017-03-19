@@ -1,7 +1,7 @@
 # Set anaconda installation
 
 export PATH=$PATH:$HOME/anaconda3/bin
-export LD_LIBRARY_PATH=$HOME/anaconda3/lib
+#export LD_LIBRARY_PATH=$HOME/anaconda3/lib
 alias python3=$HOME/anaconda3/bin/python
 
 # Set virtualenvwrapper
