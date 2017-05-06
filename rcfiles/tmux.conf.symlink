@@ -1,7 +1,7 @@
 # tmux display things in 256 colors
-set -g default-terminal "tmux-256color"
+# set -g default-terminal "tmux-256color"
 #  enable terminal compability
-set-option -ga terminal-overrides ",tmux-256color:Tc"
+# set-option -ga terminal-overrides ",tmux-256color:Tc"
 
 set -g history-limit 20000
 
@@ -82,13 +82,15 @@ setw -g mouse on
 set-option -g -q mouse on
 
 bind-key -T root PPage if-shell -F "#{alternate_on}" "send-keys PPage" "copy-mode -e; send-keys PPage"
-bind-key -t vi-copy PPage page-up
-bind-key -t vi-copy NPage page-down
+
+bind-key -Tcopy-mode-vi PPage send -X page-up
+bind-key -Tcopy-mode-vi NPage send -X page-down
+
 
 bind -T root WheelUpPane if-shell -F -t = "#{alternate_on}" "select-pane -t =; send-keys -M" "select-pane -t =; copy-mode -e; send-keys -M"
 bind -T root WheelDownPane if-shell -F -t = "#{alternate_on}" "select-pane -t =; send-keys -M" "select-pane -t =; send-keys -M"
-bind-key -t vi-copy WheelUpPane halfpage-up
-bind-key -t vi-copy WheelDownPane halfpage-down
+bind-key -Tcopy-mode-vi WheelUpPane send -X halfpage-up 
+bind-key -Tcopy-mode-vi  WheelDownPane send -X halfpage-down 
 
 # maximizing and restoring windows
 unbind Up
@@ -103,8 +105,8 @@ unbind [
 bind Escape copy-mode
 unbind p
 bind p paste-buffer
-bind -t vi-copy 'v' begin-selection
-bind -t vi-copy 'y' copy-selection
+bind-key -Tcopy-mode-vi 'v' send -X begin-selection
+bind-key -Tcopy-mode-vi 'y' send -X copy-selection
 
 # Buffers to/from Mac clipboard, yay tmux book from pragprog
 bind C-c run "tmux save-buffer - | reattach-to-user-namespace pbcopy"
@@ -122,7 +124,8 @@ source ~/.dotfiles/tmux/theme.sh
 ##############################
 set-option -g default-command "which reattach-to-user-namespace > /dev/null && reattach-to-user-namespace -l zsh || zsh"
 # Copy stuff to clipboard in vim mode (Requires xclip)
-bind -t vi-copy y copy-pipe 'xclip -in -selection clipboard'
+bind-key -Tcopy-mode-vi y send -X  copy-pipe 'xclip -in -selection clipboard'
 #Copy stuff to the clipboard in mouse mode (Requires xclip) REQUIRES tmux>=2.2
-bind-key -t vi-copy MouseDragEnd1Pane copy-pipe "xclip -in -selection clipboard"
+bind-key -Tcopy-mode-vi MouseDragEnd1Pane send -X copy-pipe "xclip -in -selection clipboard"
+
 
