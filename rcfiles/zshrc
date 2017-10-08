@@ -97,3 +97,12 @@ source $ZSH_CUSTOM/themes/pure_adidional.zsh-theme
 #screenfetch
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Set SSH to use gpg-agent
+unset SSH_AGENT_PID
+if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
+  export SSH_AUTH_SOCK="/run/user/$UID/gnupg/S.gpg-agent.ssh"
+fi
+
+# added by travis gem
+[ -f /home/pablogsal/.travis/travis.sh ] && source /home/pablogsal/.travis/travis.sh
