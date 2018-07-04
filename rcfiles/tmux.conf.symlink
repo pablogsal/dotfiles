@@ -1,8 +1,8 @@
 # tmux display things in 256 colors
-set -g default-terminal "tmux-256color"
+# set -g default-terminal "tmux-256color"
 #  enable terminal compability
-set-option -ga terminal-overrides ",tmux-256color:Tc"
-set-option -s set-clipboard off
+# set-option -ga terminal-overrides ",tmux-256color:Tc"
+# set-option -s set-clipboard off
 
 
 set -g history-limit 20000
@@ -79,20 +79,15 @@ bind -r J resize-pane -D 10
 bind -r K resize-pane -U 10
 bind -r L resize-pane -R 10
 
-# enable mouse support for switching panes/windows
-setw -g mouse on
-set-option -g -q mouse on
-
 bind-key -T root PPage if-shell -F "#{alternate_on}" "send-keys PPage" "copy-mode -e; send-keys PPage"
 
-bind-key -Tcopy-mode-vi PPage send -X page-up
-bind-key -Tcopy-mode-vi NPage send -X page-down
+# bind-key -Tcopy-mode-vi PPage send -X page-up
+# bind-key -Tcopy-mode-vi NPage send -X page-down
 
-
-bind -T root WheelUpPane if-shell -F -t = "#{alternate_on}" "select-pane -t =; send-keys -M" "select-pane -t =; copy-mode -e; send-keys -M"
-bind -T root WheelDownPane if-shell -F -t = "#{alternate_on}" "select-pane -t =; send-keys -M" "select-pane -t =; send-keys -M"
-bind-key -Tcopy-mode-vi WheelUpPane send -X halfpage-up 
-bind-key -Tcopy-mode-vi  WheelDownPane send -X halfpage-down 
+# bind -T root WheelUpPane if-shell -F -t = "#{alternate_on}" "select-pane -t =; send-keys -M" "select-pane -t =; copy-mode -e; send-keys -M"
+# bind -T root WheelDownPane if-shell -F -t = "#{alternate_on}" "select-pane -t =; send-keys -M" "select-pane -t =; send-keys -M"
+# bind-key -Tcopy-mode-vi WheelUpPane send -X halfpage-up
+# bind-key -Tcopy-mode-vi  WheelDownPane send -X halfpage-down
 
 # maximizing and restoring windows
 unbind Up
@@ -123,11 +118,10 @@ source ~/.dotfiles/tmux/theme.sh
 
 ##############################
 ###         Fixes          ###
-##############################
-set-option -g default-command "which reattach-to-user-namespace > /dev/null && reattach-to-user-namespace -l zsh || zsh"
-# Copy stuff to clipboard in vim mode (Requires xclip)
-bind-key -Tcopy-mode-vi y send -X  copy-pipe 'xclip -in -selection clipboard'
-#Copy stuff to the clipboard in mouse mode (Requires xclip) REQUIRES tmux>=2.2
-bind-key -Tcopy-mode-vi MouseDragEnd1Pane send -X copy-pipe "xclip -in -selection clipboard"
-
-
+###############################
+# bind -T copy-mode-vi y send -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy"
+#set-option -g default-command "which reattach-to-user-namespace > /dev/null && reattach-to-user-namespace -l zsh || zsh"
+### Copy stuff to clipboard in vim mode (Requires xclip)
+#bind-key -Tcopy-mode-vi y send -X  copy-pipe 'xclip -in -selection clipboard'
+###Copy stuff to the clipboard in mouse mode (Requires xclip) REQUIRES tmux>=2.2
+#bind-key -Tcopy-mode-vi MouseDragEnd1Pane send -X copy-pipe "xclip -in -selection clipboard"

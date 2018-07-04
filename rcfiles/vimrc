@@ -1,4 +1,5 @@
 source ~/.vim_config_rc/plugins.vim
+source ~/.dotfiles/vim/vim_config_rc/vimrcs/plug_config.vim
 
 source ~/.vim_config_rc/vimrcs/basic.vim
 source ~/.vim_config_rc/vimrcs/filetypes.vim
