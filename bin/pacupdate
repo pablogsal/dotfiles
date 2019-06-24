@@ -3,8 +3,16 @@
 echo -e "\e[32m:: updating system...\e[39m"
 echo -e "\e[34m:: updating pacman...\e[39m"
 sudo pacman -Syu
-echo -e "\e[34m:: updating yaourt...\e[39m"
-yaourt -Syua
+retVal=$?
+if [ $retVal -ne 0 ]; then
+    echo -e "\e[31m:: Arg!.... will exit...\e[39m"
+fi
+echo -e "\e[34m:: updating yay...\e[39m"
+yay -Syua
+retVal=$?
+if [ $retVal -ne 0 ]; then
+    echo -e "\e[31m:: Arg!.... will exit...\e[39m"
+fi
 echo " "
 echo -e "\e[32m:: update complete...\e[39m"
 echo " "

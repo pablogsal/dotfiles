@@ -64,5 +64,3 @@ call matchadd('ColorColumn', '\%81v', 100)
  let g:airline_right_sep=''
 
 set clipboard=unnamed
-
-

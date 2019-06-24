@@ -125,3 +125,19 @@ source ~/.dotfiles/tmux/theme.sh
 #bind-key -Tcopy-mode-vi y send -X  copy-pipe 'xclip -in -selection clipboard'
 ###Copy stuff to the clipboard in mouse mode (Requires xclip) REQUIRES tmux>=2.2
 #bind-key -Tcopy-mode-vi MouseDragEnd1Pane send -X copy-pipe "xclip -in -selection clipboard"
+
+
+##############################
+###        Plugins         ###
+##############################
+
+# List of plugins
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+set -g @plugin 'tmux-plugins/tmux-cpu'
+
+# Options for plugins
+set -g @resurrect-strategy-vim 'session'
+
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+run -b '~/.tmux/plugins/tpm/tpm'
