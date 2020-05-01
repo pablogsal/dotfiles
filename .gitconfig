@@ -1,0 +1,37 @@
+[user]
+    email = pablogsal@gmail.com
+    name = Pablo Galindo
+    signingkey = 0x64E628F8D684696D
+[push]
+    default = simple
+[alias]
+    plog = log --graph --decorate --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    cleanup = "!f(){ git checkout -q master && git for-each-ref refs/heads/ '--format=%(refname:short)' | while read branch; do mergeBase=$(git merge-base master $branch) && [[ $(git cherry master $(git commit-tree $(git rev-parse $branch^{tree}) -p $mergeBase -m _)) == '-'* ]] && git branch -D $branch; done ; }; f"
+    notonremote = !bash git-not-on-remote
+[help]
+    autocorrect = 50
+[commit]
+    gpgsign = true
+[core]
+    editor = vim
+    excludesfile = /home/pablogsal/.gitignore_global
+    pager = delta --plus-color="#99ffb6" --minus-color="#e96372" --dark
+[color]
+    ui = always
+; [color "diff-highlight"]
+;     oldNormal = red bold
+;     oldHighlight = red bold 52
+;     newNormal = green bold
+;     newHighlight = green bold 22
+; [color "diff"]
+;     meta = 11
+;     frag = magenta bold
+;     commit = yellow bold
+;     old = red bold
+;     new = green bold
+;     whitespace = red reverse
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
